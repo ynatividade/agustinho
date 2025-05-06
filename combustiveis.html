@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agustinho - Preços de Combustíveis</title>
+  <meta name="description" content="Tabela atualizada de preços de combustíveis para motoristas de aplicativo">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="assets/logo/favicon.png" rel="icon">
+  <link href="assets/logo/apple-touch-icon.png" rel="apple-touch-icon">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html"><img src="assets/logo/agostinho_header.png" alt="Agostinho Logo" class="logo-icon" /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Calculadora</a></li>
+          <li><a href="combustiveis.html" class="active">Combustíveis</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="fuel" class="section active">
+
+    <!-- Swiper -->
+    <div class="banner-horizontal banner-topo swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-topo-1.jpg" alt="Publicidade Topo 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-topo-2.jpg" alt="Publicidade Topo 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-topo-3.jpg" alt="Publicidade Topo 3">
+        </div>
+      </div>
+      <!-- Adiciona paginação -->
+      <div class="swiper-pagination"></div>
+      <!-- Adiciona navegação -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <!-- Fim Swiper -->
+
+      <div class="container">
+        <h1><i class="fas fa-gas-pump"></i> Postos de Combustível</h1>
+    
+        <div class="table-responsive">
+          <table class="fuel-table">
+            <thead>
+              <tr>
+                <th>Nome&nbsp;&nbsp;</th>
+                <th>Etanol&nbsp;&nbsp;</th>
+                <th>Gas. Comum</th>
+                <th>Gas. Aditivada</th> 
+                <th>Bandeira</th>
+                <th>Horário&nbsp;&nbsp;</th>
+                <th>Endereço</th>
+                <th>Mapa</th>                
+                <th>Atualização</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-postos">
+              <!-- Os dados serão inseridos aqui via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fuel-footer">
+          <button id="btn-atualizar" class="btn-atualizar">
+            <i class="fas fa-sync-alt"></i> Atualizar Dados
+          </button>
+          <p>Dados atualizados em: <span id="data-atualizacao">-</span></p>
+        </div>
+
+        <div class="fuel-footer">
+          <p>Esta tabela é atualizada manualmente. Você pode ajudar enviando informações atualizadas!</p>
+          <a href="https://wa.me/5535997562846?text=Olá,%20encontrei%20um%20posto%20com%20preço%20atualizado:" 
+            class="whatsapp-link2" 
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Enviar informação via WhatsApp
+          </a>
+          <small>Obrigado pelas contribuições!</small>
+        </div>
+      </div>
+    </section>
+    <div class="banner-horizontal banner-rodape swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-1.jpg" alt="Publicidade Rodapé 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-2.jpg" alt="Publicidade Rodapé 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-3.jpg" alt="Publicidade Rodapé 3">
+        </div>
+      </div>
+      <!-- Adiciona paginação -->
+      <div class="swiper-pagination"></div>
+      <!-- Adiciona navegação -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; <strong>2025 Agustinho</strong>. Desenvolvido por Yuri Natividade. Todos os direitos reservados.</p>
+      <a href="#" class="buy-coffee-button"><i class="fas fa-mug-hot"></i> Comprar um café</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>              
+</body>
+</html>

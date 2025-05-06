@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agustinho - Calculadora de Lucro para Motoristas</title>
+  <meta name="description" content="Calcule seu lucro real como motorista de aplicativo com nossa ferramenta precisa">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="assets/logo/favicon.png" rel="icon">
+  <link href="assets/logo/apple-touch-icon.png" rel="apple-touch-icon">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html"><img src="assets/logo/agostinho_header.png" alt="Agostinho Logo" class="logo-icon" /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Calculadora</a></li>
+          <li><a href="combustiveis.html">Combustíveis</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section active">
+      
+      <!-- Swiper -->
+      <div class="banner-horizontal banner-topo swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="assets/banners/banner-topo-1.jpg" alt="Publicidade Topo 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/banners/banner-topo-2.jpg" alt="Publicidade Topo 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/banners/banner-topo-3.jpg" alt="Publicidade Topo 3">
+          </div>
+        </div>
+        <!-- Adiciona paginação -->
+        <div class="swiper-pagination"></div>
+        <!-- Adiciona navegação -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <!-- Fim Swiper -->
+      
+      <!-- Calculadora -->
+      <h1><i class="fas fa-calculator"></i> Calculadora de Lucro Real</h1>
+
+      <!-- Form -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="kmInicial"><i class="fas fa-tachometer-alt"></i> KM Inicial*</label>
+          <input type="number" id="kmInicial" placeholder="ex: 10234">
+        </div>
+        <div class="form-group">
+          <label for="kmFinal"><i class="fas fa-tachometer-alt"></i> KM Final*</label>
+          <input type="number" id="kmFinal" placeholder="ex: 10400">
+        </div>
+        <div class="form-group">
+          <label for="numeroCorridas"><i class="fas fa-list-ol"></i> Nº de Corridas</label>
+          <input type="number" id="numeroCorridas" placeholder="ex: 16">
+        </div>
+        <div class="form-group">
+          <label for="kmPessoais"><i class="fas fa-user"></i> KM Pessoais</label>
+          <input type="number" id="kmPessoais" placeholder="ex: 12">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="valorCorridas"><i class="fas fa-money-bill-wave"></i> Valor Recebido (R$)*</label>
+          <input type="number" id="valorCorridas" placeholder="ex: 180,50" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="consumoMedio"><i class="fas fa-gas-pump"></i> Consumo Médio (km/l)*</label>
+          <input type="number" id="consumoMedio" placeholder="ex: 10" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="precoCombustivel"><i class="fas fa-dollar-sign"></i> Preço Combustível (R$/l)*</label>
+          <input type="number" id="precoCombustivel" placeholder="ex: 5,80" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="outrosCustos"><i class="fas fa-receipt"></i> Outros Custos (R$)</label>
+          <input type="number" id="outrosCustos" placeholder="ex: 10,00" step="0.01">
+        </div>
+      </div>
+      <!-- Fim Form -->
+
+      <button onclick="calcularLucro()"><i class="fas fa-calculator"></i> Calcular</button>
+      <button class="secondary" onclick="toggleInfo()"><i class="fas fa-info-circle"></i> Como usar</button>
+
+      <!-- InfoBox -->
+      <div class="info-box" id="infoBox" style="display:none; margin-top:20px;">
+        <div class="card">
+          <h3><i class="fas fa-info-circle"></i> Como usar a Calculadora do Agustinho</h3>
+          <div class="result-item" style="margin-top: 10px;">
+            <strong>1. Preencha os campos obrigatórios:</strong><br>
+            KM Inicial, KM Final, Valor Recebido (R$), Consumo Médio (km/l) e Preço do Combustível (R$/l).
+          </div>
+          <div class="result-item">
+            <strong>2. Campos Opcionais:</strong><br>
+            Informe o KM Pessoais e o Nº de Corridas, se quiser mais detalhes.
+          </div>
+          <div class="result-item">
+            <strong>3. Clique em "Calcular".</strong><br>
+            Veja seu lucro, custos e o gráfico de distribuição dos gastos.
+          </div>
+          <div class="result-item">
+            <strong>4. Histórico:</strong><br>
+            Acompanhe seus últimos resultados em "Ver histórico de cálculos".
+          </div>
+          <div class="result-item">
+            <strong>5. Premissas:</strong><br>
+            <ul style="margin-top:10px; margin-left:20px;">
+              <li><strong>Manutenção preventiva:</strong> 1 revisão a cada 10.000 km, custo médio de R$ 500. Resultado: R$ 0,05 por km.</li>
+              <li><strong>Troca de pneus:</strong> Jogo completo a cada 40.000 km, custo médio de R$ 2.000. Resultado: R$ 0,05 por km.</li>
+              <li><strong>Troca de óleo:</strong> A cada 5.000 km, custo médio de R$ 250. Resultado: R$ 0,05 por km.</li>
+              <li><strong>Depreciação do veículo:</strong> Estimada em R$ 0,20 por km rodado, considerando uso intenso no transporte por app.</li>
+            </ul>
+            <p style="margin-top:10px;">Esses valores são fixos e aplicados automaticamente para fornecer uma estimativa realista do custo total por km.</p>
+            <p style="margin-top: 20px; color: var(--success-color); font-weight: bold;">Tudo de forma rápida, simples e precisa, meu patrão! 🚀</p>
+          </div>
+        </div>
+      </div>
+      <!-- Fim InfoBox -->
+
+      <div class="result" id="resultado" style="margin-top:30px;"></div>
+
+      <div id="chartSection" style="display:none;">
+        <h3 style="text-align:center; color:var(--primary-color); margin-top:40px;"><i class="fas fa-chart-pie"></i> Distribuição dos Custos</h3>
+        <canvas id="graficoCustos"></canvas>
+      </div>
+
+      <div class="info-toggle" onclick="toggleHistorico()" style="margin-top:30px; cursor:pointer; color:var(--secondary-color);">
+        <i class="fas fa-history"></i> ▼ Ver histórico de cálculos
+      </div>
+      <div class="info-box" id="historicoBox" style="display:none; margin-top:10px;">
+        <h3><i class="fas fa-history"></i> Últimos Cálculos</h3>
+        <div id="historicoLista"></div>
+        <div class="historico-actions" style="margin-top:15px;">
+          <button class="secondary" onclick="limparHistorico()"><i class="fas fa-trash-alt"></i> Limpar Histórico</button>
+        </div>
+      </div>
+    </section>
+    <div class="banner-horizontal banner-rodape swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-1.jpg" alt="Publicidade Rodapé 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-2.jpg" alt="Publicidade Rodapé 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/banners/banner-rodape-3.jpg" alt="Publicidade Rodapé 3">
+        </div>
+      </div>
+      <!-- Adiciona paginação -->
+      <div class="swiper-pagination"></div>
+      <!-- Adiciona navegação -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; <strong>2025 Agustinho</strong>. Desenvolvido por Yuri Natividade. Todos os direitos reservados.</p>
+      <a href="#" class="buy-coffee-button"><i class="fas fa-mug-hot"></i> Comprar um café</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
